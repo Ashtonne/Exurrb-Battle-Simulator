@@ -26,7 +26,7 @@ class Enemy:
 
 class Item:
     
-    def __init__(self, name, tier, durability, weight, strengthAdr, perceptionAdr, enduranceAdr, agilityAdr):
+    def __init__(self, name, tier, durability, weight, strengthAdr, enduranceAdr, agilityAdr):
         self.name = name
         self.tier = tier # 1, 2, 3, 4  (1 being the best)
         self.durability = durability # x amount of hits
