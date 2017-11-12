@@ -42,7 +42,7 @@ def makeEntity():
             print("{} is not a valid amount".format(amount))
             
     # open csv file and write to it
-    with open("entity_data/" + entityChoice + ".csv", "w", newline='') as file:
+    with open("entity_data/" + entityChoice + ".csv", "a", newline='') as file:
         writer = csv.writer(file, quoting=csv.QUOTE_ALL)
     
         for i in range(amount):
@@ -67,11 +67,10 @@ def makeItem():
     print("2) Create new Ranged Item(s) ")
     print("3) Create new Magic Item(s) ")
     print("4) Create new Clothing Item(s) ")
-    print("5) Create new Miscellaneous Item(s) ")
     print("0) Exit")
     
     choice = input("Choice: ")
-    getUserInput(['1', '2', '3', '4', '5'], choice)
+    getUserInput(['1', '2', '3', '4'], choice)
     
     if choice == '1':
         itemType = "melee"
@@ -81,8 +80,6 @@ def makeItem():
         itemType = "magic"
     elif choice == '4':
         itemType = "clothing"        
-    elif choice == '5':
-        itemType = "miscellaneous"        
         
     # ensure csv file exists
     if(os.path.isfile("items/" + itemType + ".csv") == False):
@@ -99,22 +96,18 @@ def makeItem():
             print("{} is not a valid amount".format(amount))
     
     # open csv file and write to it
-    with open("items/" + itemType + ".csv", "w", newline='') as file:
-        writer = csv.writer(file, quoting=csv.QUOTE_ALL)
+    with open("items/" + itemType + ".csv", "a", newline='') as file:
+        writer = csv.writer(file, quoting=csv.QUOTE_NONNUMERIC)
     
         for i in range(amount):
             # get item info from user
             name = input("Item {}'s Name: ".format(i+1))
-            tier = input("Item {}'s Tier (1-4): ".format(i+1))
-            durability = input("Item {}'s Durability (x amount of uses): ".format(i+1))
-            weight = input("Item {}'s Weight (x pounds): ".format(i+1))
-            strengthAdr = input("Item {}'s Strength Bonus: ".format(i+1))
-            perceptionAdr = input("Item {}'s Perception Bonus: ".format(i+1))
-            enduranceAdr = input("Item {}'s Endurance Bonus: ".format(i+1))
-            agilityAdr = input("Item {}'s Agility Bonus: ".format(i+1))
+            tier = int(input("Item {}'s Tier (1-4): ".format(i+1)))
+            durability = int(input("Item {}'s Durability (x amount of uses): ".format(i+1)))
+            weight = int(input("Item {}'s Weight (x pounds): ".format(i+1)))
+            strengthAdr = int(input("Item {}'s Strength Bonus: ".format(i+1)))
+            enduranceAdr = int(input("Item {}'s Endurance Bonus: ".format(i+1)))
+            agilityAdr = int(input("Item {}'s Agility Bonus: ".format(i+1)))
             
             # write given data to the csv file
-            writer.writerow([name, tier, durability, weight, strengthAdr, perceptionAdr, enduranceAdr, agilityAdr])
-            
-    file.close()
-    
+            writer.writerow([name, tier, durability, weight, strengthAdr, enduranceAdr, agilityAdr])
