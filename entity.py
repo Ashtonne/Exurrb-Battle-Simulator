@@ -14,7 +14,6 @@ class Player:
 class Enemy:
     
     def __init__(self, name, size, armourClass):
-        self.items = set()
         self.name = name
         self.size = size
         self.armourClass = armourClass
