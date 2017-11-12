@@ -1,11 +1,11 @@
 Guard,Uniform,Shortsword,Shortbow
 Worker,Overalls,Pickaxe,Knife
 Soldier,Legion Uniform,Light Combat Gear,Greatsword,Knife,Spear
-Scribe,Robes,Knife,Identity Waiver
-Trader,Travel Pack,Quarterstaff,Knife
-Hobo,Tent,Portable Cooker,Knife,Shortsword,Tattered Rags
-Adventurer,Plate Armor,Greatsword,Dagger,Rope,Sack
-Thief,Burgle Outfit,Street Clothes,Guard Disguise,Lockpicks,Knife 
+Scribe,Robes,Knife,Misty Cloak,Quaterstaff
+Trader,Quarterstaff,Knife
+Hobo,Knife,Shortsword,Tattered Rags
+Adventurer,Plate Armor,Greatsword,Dagger
+Thief,Burgle Outfit,Street Clothes,Guard Disguise,Knife 
 Paladin,Light Armor,Short Sword,Hammer
 Mutant,Radioactive Rags,Greatclub,Radioactive Repeater Blade
-Cursed,Gewehr-98,Knife,Misty Cloak,Travelers Pack
+Cursed,Gewehr-98,Knife,Misty Cloak

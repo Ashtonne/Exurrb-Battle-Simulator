@@ -1,10 +1,4 @@
-import sys
-import csv
-import os
 from random import randint
-from entity import Player
-from entity import Enemy
-from entity import Item
 
 
 # dice roll function
@@ -18,5 +12,8 @@ def rollDice(diceSides):
 # TODO colors for all the outputs
 # TODO implement item functionality
 # TODO create battle log
-# TODO create class functionality and item assigning
 # TODO implement special abilities with conditons
+# TODO item hit function which uses rollDice
+# TODO name conflict prevention for adding anything
+# TODO item weathering
+# TODO create item profile for each player
