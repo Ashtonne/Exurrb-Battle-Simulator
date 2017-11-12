@@ -1,20 +1,17 @@
-Shortsword
-Knife
-Pickaxe
-Greatsword
-Knife
-Spear
-Dagger
-Hammer
-Greatclub
-Radioactive Repeater Blade
-Mace
-Bludgeon
-Flail
-Spiked Stick
-Marshmallow
-Nunchaku
-Police Baton
-Crowbar
-Baseball bat
-Frying Pan
+"Shortsword",3,15,10,-2,-1
+"Knife",3,20,2,0,0
+"Tiny Pickaxe",4,6,8,-1,-2
+"Long Greatsword",2,20,17,-4,-5
+"Tasty Spear",3,12,11,-1,-3
+"Sweet Dagger",3,12,4,-1,-2
+"Soggy Hammer",4,7,3,-2,-4
+"Greatclub",2,10,14,-5,-6
+"Radioactive Repeater Blade",2,15,19,-10,-8
+"Warm Mace",2,8,9,-3,-4
+"Soft Flail",3,6,3,-1,-3
+"Spiked Stick",1,17,4,-3,-2
+"Spicy Marshmallow",1,18,20,-10,-13
+"Stolen Police Baton",2,7,13,-2,-3
+"Paper Crowbar",3,5,7,0,0
+"Cucumber bat",4,8,6,0,0
+"Frying Pan",4,5,3,0,0

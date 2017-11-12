@@ -1,13 +1,13 @@
-Uniform
-Overalls
-Legion Uniform
-Robes
-Plate Armor
-Burgle Outfit
-Street Clothes
-Guard Disguise
-Light Armor
-Radioactive Rags
-Misty Cloak
-Light Combat Gear
-Tattered Rags
+"Uniform",3,25,2,3,3,1
+"Overalls",4,1,20,1,1,2,0
+"Legion Uniform",2,25,2,3,3,2
+"Robes",1,8,2,0,2,0
+"Plate Armor",2,50,10,15,-8,-5
+"Burgle Outfit",4,15,2,0,0,5
+"Street Clothes",4,15,2,0,2,3
+"Guard Disguise",3,10,3,5,-1,0
+"Light Armor",3,35,6,10,-3,-2
+"Radioactive Rags",10,1,0,1,1
+"Misty Cloak",1,10,1,0,4,9
+"Light Combat Gear",2,30,5,12,-3,-3
+"Tattered Rags",4,5,1,0,1,0
