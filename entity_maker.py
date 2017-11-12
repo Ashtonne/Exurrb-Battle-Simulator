@@ -57,7 +57,7 @@ def makeEntity():
     file.close()
     
     
-
+'''
 def makeItem():
     
     # ensure csv file exists
@@ -90,3 +90,5 @@ def makeItem():
             writer.writerow([name, itemType, tier, durability])
             
     file.close()
+    
+'''
