@@ -3,7 +3,7 @@ from entity_maker import makeEntity
 from entity_maker import makeItem
 from ui_helpers import menu
 from ui_helpers import getUserInput
-from simulator import instanceLoader
+
 
 def main():
 
@@ -33,13 +33,19 @@ def main():
             # clearscreen
             print(chr(27) + "[2J") 
     
-            print("Choose an option, 0 to exit")
-            print("1) Create new Player(s)")
-            print("2) Create new Enemy(s) ")
+            print("Choose and option below:")
+            print("1) Create new Enemy or Player")
+            print("2) Create new Item")
+            print("0) Exit")
+            
             choice = input("Choice: ")
     
             choice = getUserInput(['1', '2'], choice)
-        
+            
+            if choice == '1':
+                makeEntity()
+            else:
+                makeItem()
     sys.exit(0)
             
     
