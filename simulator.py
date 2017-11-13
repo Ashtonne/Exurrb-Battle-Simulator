@@ -17,3 +17,5 @@ def rollDice(diceSides):
 # TODO name conflict prevention for adding anything
 # TODO item weathering
 # TODO create item profile for each player
+# TODO create file writing function (low priority)
+# TODO check that player searched is actually valid

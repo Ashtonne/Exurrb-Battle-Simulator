@@ -3,7 +3,7 @@ from entity_maker import makeEntity
 from entity_maker import makeItem
 from ui_helpers import menu
 from ui_helpers import getUserInput
-
+from entity_initializer import instanceLoader
 
 def main():
 
