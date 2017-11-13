@@ -8,7 +8,7 @@ from entity import Item
 
 # loads instances of players, enemys, or items into memory
 def instanceLoader(entityType, entityName):
-    
+
     if entityType == "item":
         
         # check if item exists
@@ -21,6 +21,7 @@ def instanceLoader(entityType, entityName):
                 # search each row to find item
                 for row in reader:
                     if row[0] == entityName:
+                        # create, initialize, and return the item found
                         item = Item(entityName, row[1], row[2], row[3], row[4], row[5], row[6])
                         return item
         else:
@@ -39,52 +40,80 @@ def instanceLoader(entityType, entityName):
             if entityName == name[0]:
                 # create a new entity with values found in csv file
                 if entityType == "player":
-                    # intialize a player with some default values
-                    player = Player(entityName, "tmp", 0, 0, 0, 0, 0)
+                    # intialize a player with default values
+                    # Class: Human, Weight: 100lbs Strength: 10, Endurance: 20, Agility: 20
+                    player = Player(entityName, "Human", 100, 10, 20, 20)
                     
-                    # open up class types file and search for players class
+                    # open up class types file and search for player's class
                     with open("entity_data/class_types.csv", "r") as classTypeFile:
                         classReader = csv.reader(classTypeFile, delimiter=',')
-                        print("checkpoint")
+
                         for row in classReader:
-                            # if class type is equal to players class type
+                            # if class type (row[0]) is equal to player's class type (name[1])
                             if row[0] == name[1]:
-                                
+                                player.classType = row[0]
                                 # add items to players inventory
                                 for item in row:
                                     if item != name[1] and itemCheck(item, "ITEMFOUND"):
                                         player.addItem(item)
-                                        print("{} found".format(item))
-                    #TODO add item benifits to player
-                    
+
+
+                    # find item and apply it's stats to player
+                    for item in range(player.inventorySize()):
+                        print("Item: {}".format(player.getItem(item)))
+                        
+                        # make sure item stored in inventory still exists
+                        if itemCheck(player.getItem(item), "ITEMFOUND") == False:
+                            return False
+                            
+                        itemDirectory = itemCheck(player.getItem(item), "ITEMLOCATION")
+                        
+                        # open file where item is stored
+                        with open(itemDirectory, "r") as itemFile:
+                            itemReader = csv.reader(itemFile, delimiter=',')
+
+                            # search for item name in the first string of every row
+                            for row in itemReader:
+                                
+                                if row[0] == player.getItem(item):
+                                    # apply the rest of items stats that can be applied to player (weight, strength, endurance etc...)
+                                    player.applyStats(row[3], row[4], row[5], row[6])
+                                    break
+                            break
+
                     # return initialized player
                     return player
                         
                 elif entityType == "enemy":
-                    # intialize an enemy with values found in row
-                    enemy = Enemy(entityName, name[1], name[2])
-                    
+                    with open("entity_data/enemy.csv") as file:
+                        reader = csv.reader(file, delimiter=',')
+                        
+                        for row in reader:
+                            if row[0] == entityName:
+                                # intialize an enemy with values found in row
+                                enemy = Enemy(entityName, row[1], row[2])
+
                     # return initialized enemy
                     return enemy
                        
                 else:
-                    print("Entity type not found.")
+                    print("Entity type does not exist.")
     return False
     
     
 def itemCheck(item, returnOption):
 
-    if searchFile("items/clothing", item, returnOption):
-        return searchFile("items/clothing", item, returnOption)
+    if searchFile("items/clothing.csv", item, returnOption):
+        return searchFile("items/clothing.csv", item, returnOption)
         
-    elif searchFile("items/magic", item, returnOption):
-        return searchFile("items/magic", item, returnOption)
+    elif searchFile("items/magic.csv", item, returnOption):
+        return searchFile("items/magic.csv", item, returnOption)
         
-    elif searchFile("items/melee", item, returnOption):
-        return searchFile("items/melee", item, returnOption)
+    elif searchFile("items/melee.csv", item, returnOption):
+        return searchFile("items/melee.csv", item, returnOption)
         
-    elif searchFile("items/ranged", item, returnOption):
-        return searchFile("items/ranged", item, returnOption)
+    elif searchFile("items/ranged.csv", item, returnOption):
+        return searchFile("items/ranged.csv", item, returnOption)
         
         
 # search files for a target value
@@ -102,7 +131,5 @@ def searchFile(directory, target, returnOption):
                     return True
                 else:
                     print("invalid function parameter")
-                    return False
                     
-    print("{} not found".format(target))
     return False

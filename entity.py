@@ -1,20 +1,32 @@
 class Player:
     
-    def __init__(self, name, classType, weight, strength, perception, endurance, agility):
+    def __init__(self, name, classType, weight, strength, endurance, agility):
         self.inventory = []
         self.name = name
         self.classType = classType
         self.weight = weight
         self.strength = strength
-        self.perception = perception
         self.endurance = endurance
         self.agility = agility
         
+    # add an item to players inventory
     def addItem(self, item):
         self.inventory.append(item)
     
-    # private copy of addItem method for player
-    addItem = addItem
+    # apply stats to player 
+    def applyStats(self, weight, strength, endurance, agility):
+        self.weight += int(weight)
+        self.strength += int(strength)
+        self.endurance += int(endurance)
+        self.agility += int(agility)
+        
+    # return players an item in player's inventory
+    def getItem(self, itemPlace):
+        return self.inventory[itemPlace]
+    
+    # returns size of player's inventory
+    def inventorySize(self):
+        return len(self.inventory)
     
 class Enemy:
     
